@@ -20,18 +20,18 @@ class _AirtimeState extends State<Airtime> {
       return;
     }
 
-    loading.showAlertDialog(context);
-    final response = await AirtimeDataController()
-        .detectNetwork({"number": controller.text});
+    // loading.showAlertDialog(context);
+    // final response = await AirtimeDataController()
+    //     .detectNetwork({"number": controller.text});
 
-    loading.closeDialog(context);
+    // loading.closeDialog(context);
 
-    if (response['status'] == "error") {
-      info.message = response['message'];
-      info.showAlertDialog(context);
-      return;
-    }
-    print(response);
+    // if (response['status'] == "error") {
+    //   info.message = response['message'];
+    //   info.showAlertDialog(context);
+    //   return;
+    // }
+    // print(response);
 
     Navigator.pushNamed(context, "buyAirtime");
   }

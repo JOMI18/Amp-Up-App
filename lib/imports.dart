@@ -95,3 +95,6 @@ export 'package:amp_up/widgets/home/transactions.dart';
 export 'package:amp_up/widgets/home/upgrade.dart';
 export 'package:amp_up/widgets/app_bar/profile_details_widget.dart';
 export 'package:amp_up/widgets/sign_up/welcome_app_bar.dart';
+export 'package:amp_up/widgets/savings/active.dart';
+export 'package:amp_up/widgets/savings/completed.dart';
+export 'package:amp_up/widgets/savings/pending.dart';

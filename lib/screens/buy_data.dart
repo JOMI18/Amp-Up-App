@@ -59,7 +59,7 @@ class _BuyDataState extends State<BuyData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomAppBars(title: "Buy Airtime"),
+        appBar: const CustomAppBars(title: "Buy Data"),
         body: Expanded(
           child: SingleChildScrollView(
             child: Padding(
