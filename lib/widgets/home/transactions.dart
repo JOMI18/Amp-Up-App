@@ -83,7 +83,9 @@ class TransactionsList extends StatelessWidget {
                     trailing: Text(
                       "₦${transactions[index]['price'].toString()}.00",
                       style: const TextStyle(
-                          fontWeight: FontWeight.w800, fontSize: 18),
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 18),
                     ),
                     title: Text(transactions[index]['title'],
                         style: const TextStyle(
@@ -92,6 +94,9 @@ class TransactionsList extends StatelessWidget {
                       // Format the date and time
                       DateFormat('MMM d, y @H:mm')
                           .format(transactions[index]['date']),
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   if (index != transactions.length - 1)

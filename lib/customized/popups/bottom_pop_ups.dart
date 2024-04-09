@@ -60,7 +60,8 @@ class HelpPopup extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 21, vertical: 12),
           child: Text(
             "Having issues logging in?",
-            style: TextStyle(fontSize: 21, fontWeight: FontWeight.w700),
+            style: TextStyle(
+                fontSize: 21, fontWeight: FontWeight.w700, color: Colors.black),
           ),
         ),
         const Divider(
@@ -145,7 +146,6 @@ class _CalendarPickerState extends ConsumerState<CalendarPicker> {
             selectedDate = newDateTime;
             ref.read(dobProvider.notifier).state =
                 DateFormat('MM/dd/yyyy').format(selectedDate);
-
           },
         );
       },

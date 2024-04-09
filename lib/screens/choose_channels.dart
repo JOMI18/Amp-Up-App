@@ -10,10 +10,13 @@ class TvChannels extends StatefulWidget {
 
 class _TvChannelsState extends State<TvChannels> {
   List items = [
-    {"title": "Gotv", "img": "lib/Assets/img/TvChannels/gotv.jpg"},
-    {"title": "Showmax", "img": "lib/Assets/img/TvChannels/showmax.webp"},
-    {"title": "Dstv", "img": "lib/Assets/img/TvChannels/dstv.jpg"},
-    {"title": "Startimes", "img": "lib/Assets/img/TvChannels/startimes.png"},
+    {"title": "Gotv", "img": "lib/assets/images/tv-channels/gotv.jpg"},
+    {"title": "Showmax", "img": "lib/assets/images/tv-channels/showmax.webp"},
+    {"title": "Dstv", "img": "lib/assets/images/tv-channels/dstv.jpg"},
+    {
+      "title": "Startimes",
+      "img": "lib/assets/images/tv-channels/startimes.png"
+    },
   ];
 
   @override
@@ -48,7 +51,9 @@ class _TvChannelsState extends State<TvChannels> {
                         ),
                         title: Text(items[index]["title"],
                             style: const TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 16)),
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16)),
                       ),
                     ),
                     const Divider(

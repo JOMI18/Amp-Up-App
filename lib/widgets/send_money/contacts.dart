@@ -10,8 +10,7 @@ class ContactsCard extends StatelessWidget {
     return SizedBox(
       height: 300,
       width: 400,
-      child: 
-      ComponentSlideIns(
+      child: ComponentSlideIns(
         beginOffset: Offset(4.0, 0.0),
         duration: Duration(milliseconds: 1100),
         child: Card(
@@ -37,7 +36,7 @@ class ContactsCard extends StatelessWidget {
                         TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 10),
                 Text(
-                    "Grant us access to your contact list, this will enable Betterlife to allow you choose which friends to transact with. ",
+                    "Grant us access to your contact list, this will enable Amp Up to allow you choose which friends to transact with. ",
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontSize: 15, color: Colors.grey.shade800)),

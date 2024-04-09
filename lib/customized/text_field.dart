@@ -14,6 +14,9 @@ class CustomTextField extends StatelessWidget {
   final bool readOnly;
   final String inputTitle;
   final TextInputType? keyboardType;
+  // final int? maxLines;
+  // final bool expands;
+  // final TextAlignVertical? textAlignVertical;
 
   CustomTextField(
       {super.key,

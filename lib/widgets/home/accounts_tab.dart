@@ -1,6 +1,3 @@
-// import 'dart:async';
-
-
 import 'package:flutter/material.dart';
 import 'package:amp_up/imports.dart';
 
@@ -13,14 +10,6 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
-  // void copyToClipboard(String text) {
-  //   Clipboard.setData(ClipboardData(text: text));
-
-  //   ScaffoldMessenger.of(context).showSnackBar(
-  //     const SnackBar(content: Text('Text copied to clipboard')),
-  //   );
-  // }
-
   bool isVisible = true;
   String accountNumber = "4004383940385";
 
@@ -31,14 +20,13 @@ class _AccountState extends State<Account> {
       duration: const Duration(milliseconds: 1400),
       child: SizedBox(
         height: 20.h,
-        // width: 500,
         child: Stack(
           children: [
             Positioned(
               child: Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 13),
-                height: 140,
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 13),
+                height: 17.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                   color: widget.colorScheme.primary,
@@ -55,8 +43,8 @@ class _AccountState extends State<Account> {
                             fontSize: 12,
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 1.5.h,
                         ),
                         Row(
                           children: [
@@ -87,8 +75,8 @@ class _AccountState extends State<Account> {
                             )
                           ],
                         ),
-                        const SizedBox(
-                          height: 4,
+                        SizedBox(
+                          height: 1.h,
                         ),
                         Row(
                           children: [
@@ -103,8 +91,6 @@ class _AccountState extends State<Account> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                // copyToClipboard(accountNumber);
-
                                 Utilities()
                                     .copyToClipboard(context, accountNumber);
                               },
@@ -123,7 +109,7 @@ class _AccountState extends State<Account> {
                       children: [
                         Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 8, vertical: 3),
+                              horizontal: 12, vertical: 3),
                           decoration: BoxDecoration(
                               color: const Color.fromARGB(255, 1, 157, 7),
                               borderRadius: BorderRadius.circular(3)),
@@ -132,7 +118,7 @@ class _AccountState extends State<Account> {
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 12,
-                                fontWeight: FontWeight.w500),
+                                fontWeight: FontWeight.w700),
                           ),
                         ),
                         const SizedBox(
@@ -156,8 +142,8 @@ class _AccountState extends State<Account> {
                 bottom: 0,
                 left: 15.w,
                 child: Container(
-                  height: 48,
-                  width: 260,
+                  height: 5.5.h,
+                  width: 63.w,
                   decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 190, 219, 255),
                       borderRadius: BorderRadius.circular(6)),

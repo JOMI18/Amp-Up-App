@@ -2,15 +2,66 @@ import 'package:flutter/material.dart';
 import 'package:amp_up/imports.dart';
 
 // Icons.arrow_forward_ios
-class ProfileInfo extends StatelessWidget {
+class ProfileInfo extends StatefulWidget {
   ProfileInfo({super.key});
 
   @override
+  State<ProfileInfo> createState() => _ProfileInfoState();
+}
+
+class _ProfileInfoState extends State<ProfileInfo> {
+  void confirmClose() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return CustomAlertDialog(
+              icon: (Icons.delete_sweep_rounded),
+              iconColor: const Color.fromARGB(255, 255, 17, 0),
+              title: "Close Account",
+              content: ComponentSlideIns(
+                beginOffset: const Offset(-2.0, 0.0),
+                duration: const Duration(milliseconds: 1200),
+                child: const Text(
+                  "You are about to delete your profile. Please note that when you delete your profile your previous transactions are not deleted",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+              ),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        style: popUpButtonStyle(),
+                        child: const Text("Close Account",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        style: popUpButtonStyle(),
+                        child: const Text("Not now",
+                            style: TextStyle(fontWeight: FontWeight.w900)),
+                      ),
+                    ],
+                  ),
+                ),
+              ]);
+        });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    ColorScheme colorScheme = Theme.of(context).colorScheme;
+    // ColorScheme colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
         bottomNavigationBar: BottomAppBar(
-            surfaceTintColor: Colors.white,
+            surfaceTintColor: Colors.transparent,
             elevation: 2,
             child: ElevatedButton.icon(
                 onPressed: () {
@@ -66,157 +117,26 @@ class ProfileInfo extends StatelessWidget {
                             Column(
                               children: [
                                 ComponentSlideIns(
-                                  beginOffset: const Offset(0.0, -6.0),
-                                  duration: const Duration(milliseconds: 700),
-                                  child: ElevatedButton(
-                                    onPressed: () {
+                                    beginOffset: const Offset(0.0, 3.0),
+                                    duration: const Duration(milliseconds: 700),
+                                    child:
+                                        Btns().trnsBtn(context, "Continue", () {
                                       Navigator.of(context).pop();
-
-                                      showDialog(
-                                          context: context,
-                                          builder: (BuildContext context) {
-                                            return CustomAlertDialog(
-                                                icon: (Icons
-                                                    .delete_sweep_rounded),
-                                                iconColor: const Color.fromARGB(
-                                                    255, 255, 17, 0),
-                                                title: "Close Account",
-                                                content: ComponentSlideIns(
-                                                  beginOffset:
-                                                      const Offset(-2.0, 0.0),
-                                                  duration: const Duration(
-                                                      milliseconds: 1200),
-                                                  child: const Text(
-                                                    "You are about to delete your profile. Please note that when you delete your profile your previous transactions are not deleted",
-                                                    textAlign: TextAlign.center,
-                                                    style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.w700),
-                                                  ),
-                                                ),
-                                                actions: [
-                                                  Padding(
-                                                    padding: const EdgeInsets
-                                                        .symmetric(
-                                                        horizontal: 8.0),
-                                                    child: Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceAround,
-                                                      children: [
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                          },
-                                                          style:
-                                                              popUpButtonStyle(),
-                                                          child: const Text(
-                                                              "Close Account",
-                                                              style: TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w900)),
-                                                        ),
-                                                        TextButton(
-                                                          onPressed: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                          },
-                                                          style:
-                                                              popUpButtonStyle(),
-                                                          child: const Text(
-                                                              "Not now",
-                                                              style: TextStyle(
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w900)),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ]);
-                                          });
-                                    },
-                                    style: ButtonStyle(
-                                      overlayColor:
-                                          const MaterialStatePropertyAll(Colors
-                                              .transparent), // only works with buttonstyle
-                                      backgroundColor: MaterialStatePropertyAll(
-                                          colorScheme.surfaceVariant),
-                                      surfaceTintColor:
-                                          const MaterialStatePropertyAll(
-                                              Colors.white),
-
-                                      elevation:
-                                          const MaterialStatePropertyAll(0),
-
-                                      // splashFactory: NoSplash
-                                      //     .splashFactory, // Remove the splash effect
-                                      fixedSize: const MaterialStatePropertyAll(
-                                          Size(370, 50)),
-
-                                      padding: const MaterialStatePropertyAll(
-                                          EdgeInsets.all(10)),
-                                      shape: MaterialStatePropertyAll(
-                                          RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8),
-                                      )),
-                                    ),
-                                    child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Continue",
-                                          style: TextStyle(
-                                              color:
-                                                  Color.fromARGB(255, 0, 0, 0),
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
+                                      confirmClose();
+                                    })),
                                 const SizedBox(
                                   height: 8,
                                 ),
                                 ComponentSlideIns(
-                                  beginOffset: const Offset(0.0, -5.0),
-                                  duration: const Duration(milliseconds: 800),
-                                  child: ElevatedButton(
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                    },
-                                    style: ElevatedButton.styleFrom(
-                                        backgroundColor: colorScheme.primary,
-                                        foregroundColor: Colors.white,
-                                        elevation: 5,
-                                        fixedSize: const Size(370,
-                                            50), // Set the width and height
-
-                                        padding: const EdgeInsets.all(10),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        )),
-                                    child: const Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          "Keep account Open",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 18),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
+                                    beginOffset: const Offset(0.0, 2.0),
+                                    duration: const Duration(milliseconds: 800),
+                                    child: Btns().btn(
+                                      context,
+                                      "Keep account Open",
+                                      () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    )),
                               ],
                             ),
                           ],

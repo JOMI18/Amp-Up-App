@@ -113,7 +113,7 @@ class _SignInState extends State<SignIn> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  " Don't have a Betterlife account?",
+                  " Don't have a Amp Up account?",
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
@@ -162,7 +162,7 @@ class _SignInState extends State<SignIn> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Welcome to Betterlife",
+                                  "Welcome to Amp Up",
                                   style: TextStyle(
                                     fontSize: 22,
                                     fontWeight: FontWeight.bold,
@@ -172,7 +172,7 @@ class _SignInState extends State<SignIn> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "Complete your details below to continue your Betterlife account",
+                                  "Complete your details below to continue your Amp Up account",
                                   style: TextStyle(
                                     fontSize: 14,
                                   ),
@@ -189,51 +189,10 @@ class _SignInState extends State<SignIn> {
                     ComponentSlideIns(
                       beginOffset: const Offset(-2, 0),
                       duration: const Duration(milliseconds: 1200),
-                      child: Row(
-                        children: [
-                          // Expanded(
-                          //     flex: 3,
-                          //     child: Column(
-                          //       crossAxisAlignment: CrossAxisAlignment.start,
-                          //       children: [
-                          //         CustomTextField(
-                          //           validator: (value) {
-                          //             print(value);
-                          //             if (value == null || value.isEmpty) {
-                          //               return 'Please enter your code';
-                          //             }
-                          //             return null;
-                          //           },
-                          //           hintText: 'Select',
-                          //           inputTitle: "Country Code",
-                          //           controller: code,
-                          //           suffixIcon: GestureDetector(
-                          //             onTap: () {
-                          //               showCountryCodes((selectedCode) {
-                          //                 code!.text = selectedCode;
-                          //                 print(code!.text);
-                          //               });
-                          //             },
-                          //             child: const Icon(
-                          //               Icons.arrow_drop_down_sharp,
-                          //               size: 30,
-                          //             ),
-                          //           ),
-                          //         ),
-                          //       ],
-                          //     )),
-                          // const SizedBox(
-                          //   width: 10,
-                          // ),
-                          Expanded(
-                            flex: 6,
-                            child: CustomTextField(
-                              hintText: 'number/email',
-                              inputTitle: "Phone number or Email",
-                              controller: numEmail,
-                            ),
-                          ),
-                        ],
+                      child: CustomTextField(
+                        hintText: 'number/email',
+                        inputTitle: "Phone number or Email",
+                        controller: numEmail,
                       ),
                     ),
                     const SizedBox(

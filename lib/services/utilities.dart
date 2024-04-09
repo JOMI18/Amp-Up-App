@@ -64,12 +64,9 @@ class Utilities {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: const Text(
           'Copied to clipboard.',
-          style: TextStyle(fontSize: 20.0, color: Colors.black),
+          style: TextStyle(color: Colors.black),
         ),
         behavior: SnackBarBehavior.floating,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
         backgroundColor: Colors.white,
         duration: const Duration(seconds: 5)));
   }

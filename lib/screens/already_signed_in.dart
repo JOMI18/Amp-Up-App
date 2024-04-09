@@ -1,8 +1,6 @@
 import 'package:amp_up/imports.dart';
 import 'package:dio/dio.dart';
-
 import 'package:flutter/material.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
 class AlreadySignedIn extends StatefulWidget {
   const AlreadySignedIn({super.key});
@@ -12,9 +10,6 @@ class AlreadySignedIn extends StatefulWidget {
 }
 
 class _AlreadySignedInState extends State<AlreadySignedIn> {
-  // TextEditingController controller1 =
-  //     TextEditingController(); // never do this it makes your screen lag, and always make sure to dispose controllers
-
   late TextEditingController controller1;
   late TextEditingController controller2;
   late TextEditingController controller3;
@@ -56,18 +51,6 @@ class _AlreadySignedInState extends State<AlreadySignedIn> {
 
   void submit() async {
     Navigator.pushNamed(context, "dashboard");
-    // final response = await dio.get('https://dart.dev'); // in flutter, we dont use localhost as the base url
-
-    // final response = await dio.get('http://10.0.2.2:8000/api/hello');
-    // final response = await dio.get('http://10.0.2.2:8000/api/user'); wont work its protected by sanctum
-
-    // final person = await dio.post('http://10.0.2.2:8000/api/register', data: {
-    //   "name": "Jomi",
-    //   "email": "getJomi@mail.com",
-    //   "password": "1234568967"
-    // });
-    // // print(response);
-    // print(person);
   }
 
   @override
@@ -103,7 +86,7 @@ class _AlreadySignedInState extends State<AlreadySignedIn> {
                               height: 5,
                             ),
                             Text(
-                              "Enter your pin to continue to your Betterlife account",
+                              "Enter your pin to continue to your Amp Up account",
                               style: TextStyle(
                                 fontSize: 14,
                               ),
@@ -190,9 +173,10 @@ class _AlreadySignedInState extends State<AlreadySignedIn> {
                 ),
                 GestureDetector(
                   onTap: () {},
-                  child: Icon(
+                  child: const Icon(
                     Icons.fingerprint_rounded,
                     size: 60,
+                    color: Colors.white,
                   ),
                 ),
                 const SizedBox(

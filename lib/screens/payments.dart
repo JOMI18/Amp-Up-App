@@ -9,7 +9,7 @@ class Payments extends StatelessWidget {
     {
       "mainIcon": Icons.monetization_on,
       "mainTitle": "Add money",
-      "subTitle": "Add money to your Betterlife account",
+      "subTitle": "Add money to your Amp Up account",
       "iconColor": const Color.fromARGB(255, 43, 0, 255),
       "route": "addMoney",
     },
@@ -23,21 +23,21 @@ class Payments extends StatelessWidget {
     {
       "mainIcon": Icons.phone_android,
       "mainTitle": "Airtime/Data",
-      "subTitle": "Add money to your Betterlife account",
+      "subTitle": "Add money to your Amp Up account",
       "iconColor": const Color.fromARGB(255, 239, 68, 255),
       "route": "buyAirtimePG",
     },
     {
       "mainIcon": Icons.tv,
       "mainTitle": "Pay a bill",
-      "subTitle": "Pay bills easily from your Betterlife",
+      "subTitle": "Pay bills easily from your Amp Up",
       "iconColor": const Color.fromARGB(255, 255, 204, 20),
       "route": "payBills",
     },
     {
       "mainIcon": Icons.shopping_cart,
-      "mainTitle": "Betterlife",
-      "subTitle": "Split your purchases with Betterlife",
+      "mainTitle": "Amp Up",
+      "subTitle": "Split your purchases with Amp Up",
       "iconColor": Colors.green.shade700,
       "route": "",
     },
@@ -117,6 +117,7 @@ class Payments extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               radius: 20,
+                              backgroundColor: Colors.white,
                               child: Icon(
                                 items[index]["mainIcon"],
                                 size: 26,
@@ -134,9 +135,9 @@ class Payments extends StatelessWidget {
                             ),
                             Text(items[index]["subTitle"],
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12,
-                                    color: Color.fromARGB(255, 19, 19, 19))),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 12,
+                                ))
                           ],
                         ),
                       ),

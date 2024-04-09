@@ -1,6 +1,5 @@
 import 'package:amp_up/imports.dart';
 
-
 import 'package:flutter/material.dart';
 
 class SendMoney extends StatelessWidget {
@@ -37,7 +36,7 @@ class SendMoney extends StatelessWidget {
                           children: [
                             CircleAvatar(
                               backgroundColor:
-                                  Color.fromARGB(255, 148, 194, 251)
+                                  Color.fromARGB(255, 255, 121, 106)
                                       .withOpacity(0.7),
                               child: Icon(
                                 Icons.add_circle,
@@ -74,6 +73,7 @@ class SendMoney extends StatelessWidget {
                         const Icon(
                           Icons.arrow_forward_ios_rounded,
                           size: 16,
+                          color: Colors.white,
                         )
                       ],
                     ),

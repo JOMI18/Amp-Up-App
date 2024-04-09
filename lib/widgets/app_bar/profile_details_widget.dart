@@ -97,7 +97,9 @@ class ProfileDetailsBody extends StatelessWidget {
                           ),
                           title: Text(items[index]["mainTitle"],
                               style: const TextStyle(
-                                  fontWeight: FontWeight.w500, fontSize: 16)),
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 16)),
                         ),
                       ),
                       const Divider(
@@ -110,11 +112,11 @@ class ProfileDetailsBody extends StatelessWidget {
         ),
         Container(
           height: 80,
-          width: 380,
+          width: 96.w,
           decoration: BoxDecoration(
               color: colorScheme.secondary,
               borderRadius: BorderRadius.circular(8)),
-          child: const Row(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -123,13 +125,12 @@ class ProfileDetailsBody extends StatelessWidget {
                 size: 34,
               ),
               SizedBox(
-                width: 330,
+                width: 80.w,
                 child: Text(
                   "We don't share your personal details with anyone. This information is required soley for verification.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Color.fromARGB(255, 3, 85, 152),
-                  ),
+                      color: Colors.white, fontWeight: FontWeight.w700),
                 ),
               )
             ],

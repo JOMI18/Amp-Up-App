@@ -1,5 +1,6 @@
 import 'package:amp_up/imports.dart';
 
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(
@@ -21,8 +21,8 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(
                 background: const Color.fromARGB(255, 30, 31, 34),
                 seedColor: const Color.fromARGB(255, 245, 81, 57),
-                surfaceVariant: const Color.fromARGB(255, 187, 221, 250),
-                secondary: const Color.fromARGB(228, 211, 231, 255),
+                surfaceVariant: Color.fromARGB(255, 181, 217, 249),
+                secondary: const Color.fromARGB(255, 253, 176, 164),
               ),
               textTheme: const TextTheme(
                 bodyMedium: TextStyle(color: Colors.white),
@@ -32,12 +32,15 @@ class MyApp extends StatelessWidget {
               bottomNavigationBarTheme: const BottomNavigationBarThemeData(
                 backgroundColor: Color.fromARGB(255, 30, 31, 34),
               ),
+              bottomAppBarTheme: const BottomAppBarTheme(
+                color: Color.fromARGB(255, 30, 31, 34),
+              ),
               appBarTheme: const AppBarTheme(
                   backgroundColor: Color.fromARGB(255, 30, 31, 34),
                   foregroundColor: Colors.white),
               useMaterial3: true,
             ),
-            initialRoute: "alreadySignedIn",
+            initialRoute: "dashboard",
             routes: {
               'starter': (context) => const IndexPage(),
               "newUser": (context) => const NewUser(),
@@ -49,27 +52,19 @@ class MyApp extends StatelessWidget {
               "confirmPin": (context) => const ConfirmPassword(),
               "dashboard": (context) => const Dashboard(),
               "home": (context) => Home(),
-
               "alreadySignedIn": (context) => const AlreadySignedIn(),
-
-              // "bvn": (context) => const BvnVerification(),
-
+              "forgotPin": (context) => const ForgotPin(),
+              "bvn": (context) => const BvnVerification(),
+              "security": (context) => const Security(),
               "profile": (context) => Profile(),
               "profileInfo": (context) => ProfileInfo(),
-              // "security": (context) => const Security(),
               "signOut": (context) => const SignOutAlert(),
-
-              // "support": (context) => Support(),
-              // 'gettingLoan': (context) => const LoanPageView(),
-              // 'challenge': (context) => const ChallengePage(),
-
-              // "notify": (context) => const BNotification(),
-
-              //////// MONEY TAB
+              "support": (context) => Support(),
+              'gettingLoan': (context) => const LoanPageView(),
+              'challenge': (context) => const ChallengePage(),
+              "notify": (context) => const NotificationTab(),
               'addMoney': (context) => AddMoney(),
               'sendMoney': (context) => const SendMoney(),
-
-              //////// QUICK ACCESS
               'dataAirtime': (context) => AirtimeDataCombo(
                     param: 1,
                   ),
@@ -79,15 +74,15 @@ class MyApp extends StatelessWidget {
               'buyDataPG': (context) => AirtimeDataCombo(
                     param: 1,
                   ),
-              // 'buyAirtime': (context) => BuyAirtime(),
-              // 'buyData': (context) => BuyData(),
+                   'buyAirtime': (context) => BuyAirtime(),
+              'buyData': (context) => BuyData(),
               'payBills': (context) => BillTabs(),
               'tvChannels': (context) => TvChannels(),
-              // 'cables': (context) => CablesTv(),
-              // 'tvPurchase': (context) => TVPurchase(),
-              // 'txSuccess': (context) => TXSuccess(),
-              // 'electricity': (context) => Electricity(),
+              'cables': (context) => CablesTv(),
+              'electricity': (context) => Electricity(),
               'electricList': (context) => ElectricList(),
+              'txSuccess': (context) => TXSuccess(),
+              'reviewpurchase': (context) => ReviewPurchase(),
             });
       },
       maxTabletWidth: 900,
@@ -98,3 +93,7 @@ class MyApp extends StatelessWidget {
 
 // clear input on delete
 // setting page pref
+
+// emm
+// 174081
+// 1518

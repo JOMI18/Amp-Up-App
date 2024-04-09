@@ -124,19 +124,6 @@ class BillTabs extends StatelessWidget {
                         size: 28,
                       ),
                     ),
-                    // prefixIcon: Container(
-                    //   height: 0,
-                    //   decoration: const BoxDecoration(
-                    //       borderRadius: BorderRadius.horizontal(
-                    //           right: Radius.circular(0),
-                    //           left: Radius.circular(8)),
-                    //       color: Color.fromARGB(183, 148, 148, 148)),
-                    //   child: const Icon(
-                    //     Icons.search,
-                    //     color: Color.fromARGB(255, 65, 65, 65),
-                    //     size: 28,
-                    //   ),
-                    // ),
                   ),
                 ),
               ),
@@ -170,7 +157,9 @@ class BillTabs extends StatelessWidget {
                           const SizedBox(height: 10),
                           const Text("No recent payment",
                               style: TextStyle(
-                                  fontSize: 16, fontWeight: FontWeight.w700)),
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w700)),
                           const SizedBox(height: 10),
                           Text("You have not made any payment recently ",
                               style: TextStyle(
@@ -199,7 +188,9 @@ class BillTabs extends StatelessWidget {
                               horizontal: 14.0, vertical: 12),
                           child: const Text("Billers",
                               style: TextStyle(
-                                  fontWeight: FontWeight.w600, fontSize: 18)),
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18)),
                         ),
                         Expanded(
                           child: ComponentSlideIns(
@@ -258,6 +249,7 @@ class BillTabs extends StatelessWidget {
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
                                                     fontWeight: FontWeight.w600,
+                                                    color: Colors.black,
                                                     fontSize: 12)),
                                           ],
                                         ),
