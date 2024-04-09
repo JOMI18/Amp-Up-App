@@ -1,6 +1,5 @@
 import 'package:amp_up/imports.dart';
 
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -74,7 +73,7 @@ class MyApp extends StatelessWidget {
               'buyDataPG': (context) => AirtimeDataCombo(
                     param: 1,
                   ),
-                   'buyAirtime': (context) => BuyAirtime(),
+              'buyAirtime': (context) => BuyAirtime(),
               'buyData': (context) => BuyData(),
               'payBills': (context) => BillTabs(),
               'tvChannels': (context) => TvChannels(),
@@ -93,6 +92,8 @@ class MyApp extends StatelessWidget {
 
 // clear input on delete
 // setting page pref
+// check buy data pg ui
+// collapsing input and button to help resp
 
 // emm
 // 174081

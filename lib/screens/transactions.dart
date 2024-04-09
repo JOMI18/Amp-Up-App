@@ -11,28 +11,63 @@ class Transactions extends StatefulWidget {
 }
 
 class _TransactionsState extends State<Transactions> {
-  int selectedIndex = 0;
+  late int _currentIndex;
+  @override
+  void initState() {
+    super.initState();
+    // Initialize _currentIndex to 0 when the widget is first created
+    // _currentIndex = widget.param;
+    _currentIndex = 0;
+  }
 
-  final List<String> tabTitles = ["Transactions", "Commission"];
+  String getTitle(int index) {
+    return index == 0
+        ? "Transactions"
+        : index == 1
+            ? "Commissions"
+            : "";
+  }
 
   @override
   Widget build(BuildContext context) {
+    // ColorScheme colorScheme = Theme.of(context).colorScheme;
+
     return Scaffold(
-      body: Center(
-          // child: TabBarsViews(
-          //   title: tabTitles[selectedIndex],
-          //   tabTitles: tabTitles,
-          //   tabViews: [
-          //     const TransTab(),
-          //     const CommissTab(),
-          //   ],
-          //   onTabChanged: (index) {
-          //     setState(() {
-          //       selectedIndex = index;
-          //     });
-          //   },
-          // ),
+      appBar: AppBar(
+        title: Text(getTitle(_currentIndex)), // Set the title dynamically
+        centerTitle: true,
+        titleSpacing: 20,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(5),
+          child: Container(
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  width: 1,
+                  color: Color.fromARGB(146, 167, 167, 167),
+                ),
+              ),
+            ),
           ),
+        ),
+      ),
+      body: Center(
+          child: CustomTabBar(
+        tabTitles: const [
+          "Transactions",
+          "Commissions",
+        ],
+        tabViews: [
+          TransTab(),
+          CommissTab(),
+        ],
+        onTabChanged: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        currentIndex: _currentIndex, // Pass currentIndex to CustomTabBar
+      )),
     );
   }
 }

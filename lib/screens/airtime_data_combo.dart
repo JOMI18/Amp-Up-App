@@ -19,13 +19,12 @@ class _AirtimeDataComboState extends State<AirtimeDataCombo> {
   }
 
   String getTitle(int index) {
-    if (widget.param != null) {
-      if (index == 0) {
-        return "Airtime";
-      } else if (index == 1) {
-        return "Data";
-      }
+    if (index == 0) {
+      return "Airtime";
+    } else if (index == 1) {
+      return "Data";
     }
+
     return "";
   }
 
