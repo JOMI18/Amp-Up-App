@@ -13,65 +13,67 @@ class _ElectricListState extends State<ElectricList> {
   final List items = [
     {
       "title": "aba",
-      "img": "lib/Assets/img/TvChannels/dstv.jpg",
+      "img": "lib/assets/images/tv-channels/gotv.jpg",
       "type": "electric"
     },
     {
       "title": "kano",
-      "img": "lib/Assets/img/TvChannels/showmax.webp",
+      "img": "lib/assets/images/tv-channels/showmax.webp",
       "type": "electric"
     },
     {
       "title": "enugu",
-      "img": "lib/Assets/img/TvChannels/dstv.jpg",
+      "img": "lib/assets/images/tv-channels/dstv.jpg",
       "type": "electric"
     },
     {
       "title": "ibadan",
-      "img": "lib/Assets/img/TvChannels/showmax.webp",
+      "img": "lib/assets/images/tv-channels/showmax.webp",
       "type": "electric"
     },
     {
       "title": "eko",
-      "img": "lib/Assets/img/TvChannels/dstv.jpg",
+      "img": "lib/assets/images/tv-channels/dstv.jpg",
       "type": "electric"
     },
     {
       "title": "ikeja",
-      "img": "lib/Assets/img/TvChannels/showmax.webp",
+      "img": "lib/assets/images/tv-channels/showmax.webp",
       "type": "electric"
     },
     {
       "title": "joss",
-      "img": "lib/Assets/img/TvChannels/dstv.jpg",
+      "img": "lib/assets/images/tv-channels/dstv.jpg",
       "type": "electric"
     },
     {
       "title": "kaduna",
-      "img": "lib/Assets/img/TvChannels/showmax.webp",
+      "img": "lib/assets/images/tv-channels/showmax.webp",
       "type": "electric"
     },
     {
       "title": "abuja",
-      "img": "lib/Assets/img/TvChannels/dstv.jpg",
+      "img": "lib/assets/images/tv-channels/dstv.jpg",
       "type": "electric"
     },
     {
       "title": "portharcourt",
-      "img": "lib/Assets/img/TvChannels/showmax.webp",
+      "img": "lib/assets/images/tv-channels/showmax.webp",
       "type": "electric"
     },
     {
       "title": "benin",
-      "img": "lib/Assets/img/TvChannels/dstv.jpg",
+      "img": "lib/assets/images/tv-channels/dstv.jpg",
       "type": "electric"
     },
     {
       "title": "yola",
-      "img": "lib/Assets/img/TvChannels/showmax.webp",
+      "img": "lib/assets/images/tv-channels/showmax.webp",
       "type": "electric"
     },
   ];
+
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +100,9 @@ class _ElectricListState extends State<ElectricList> {
                             items[index]['img'],
                           )),
                       title: Text(
-                          "${items[index]["title"].toString().toUpperCase()} Electricity"),
+                        "${items[index]["title"].toString().toUpperCase()} Electricity",
+                        style: TextStyle(color: Colors.white),
+                      ),
                       trailing: const Icon(
                         Icons.arrow_forward_ios_rounded,
                       ),

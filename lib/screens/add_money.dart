@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:amp_up/imports.dart';
 
@@ -12,20 +11,19 @@ class AddMoney extends StatelessWidget {
     ColorScheme colorscheme = Theme.of(context).colorScheme;
     return Scaffold(
       bottomNavigationBar: BottomAppBar(
-        surfaceTintColor: Colors.white,
+        surfaceTintColor: Colors.transparent,
         child: Container(
           decoration: BoxDecoration(
               color: colorscheme.secondary,
               borderRadius: BorderRadius.circular(10)),
           child: Row(
-            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const SizedBox(
                 width: 20,
               ),
               Icon(
                 Icons.sunny,
-                color: Theme.of(context).iconTheme.color,
+                color: Colors.white,
                 size: 24,
               ),
               const SizedBox(
@@ -33,7 +31,7 @@ class AddMoney extends StatelessWidget {
               ),
               const Text(
                 "Upgrade your account for higher transaction limits",
-                style: TextStyle(fontSize: 13),
+                style: TextStyle(fontSize: 13, color: Colors.black),
               )
             ],
           ),
@@ -47,7 +45,6 @@ class AddMoney extends StatelessWidget {
             children: [
               ComponentSlideIns(
                 beginOffset: const Offset(0, -4.0),
-                // duration: Duration(milliseconds: 00),
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
@@ -75,10 +72,12 @@ class AddMoney extends StatelessWidget {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  const Text(
+                                  Text(
                                     "You earn monthly interest by storing money in your account.",
                                     textAlign: TextAlign.start,
-                                    style: TextStyle(fontSize: 14),
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w600),
                                   ),
                                   GestureDetector(
                                     child: Text(

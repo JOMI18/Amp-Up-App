@@ -28,7 +28,7 @@ class CustomAlertDialog extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4),
       ),
-      backgroundColor: colorScheme.surfaceVariant,
+      backgroundColor: colorScheme.secondary,
       surfaceTintColor: Colors.white,
       insetPadding: const EdgeInsets.all(5),
       title: Column(

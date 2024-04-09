@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:amp_up/imports.dart';
-
 
 // import 'package:url_launcher/url_launcher.dart';
 
@@ -101,14 +99,12 @@ class _AccessState extends State<Access> {
             height: 15,
           ),
           SizedBox(
-            height: 30.h,
-            // width: 380,
+            height: 23.h,
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 4,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10),
-                // scrollDirection: Axis.horizontal,
                 itemCount: items.length,
                 itemBuilder: (context, index) {
                   return Row(
@@ -124,7 +120,7 @@ class _AccessState extends State<Access> {
                               ),
                             );
                           }
-                          if (items[index]["mainTitle"] == "Betterlife") {
+                          if (items[index]["mainTitle"] == "life") {
                             _launchURL();
                           }
                         },

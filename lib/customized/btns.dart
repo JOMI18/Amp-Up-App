@@ -29,6 +29,24 @@ class Btns {
             )));
   }
 
+  Widget trnsBtn(context, title, func) {
+    ColorScheme colorScheme = Theme.of(context).colorScheme;
+
+    return ElevatedButton(
+        style: ElevatedButton.styleFrom(
+            elevation: 0,
+            fixedSize: const Size(350, 60),
+            backgroundColor: colorScheme.secondary,
+            foregroundColor: Colors.black,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)))),
+        onPressed: func,
+        child: Text("$title",
+            style: const TextStyle(
+              fontWeight: FontWeight.w800,
+            )));
+  }
+
   Widget textBtn(context, title, func) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 

@@ -20,10 +20,10 @@ class Upgrade extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.3), // Shadow color
-                  spreadRadius: 0.5, // Spread radius
-                  blurRadius: 2, // Blur radius
-                  offset: const Offset(0, 1), // Offset
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 0.5,
+                  blurRadius: 2,
+                  offset: const Offset(0, 1),
                 ),
               ],
             ),
@@ -43,21 +43,28 @@ class Upgrade extends StatelessWidget {
                         Icon(
                           Icons.upgrade,
                           size: 28,
+                          color: colorScheme.primary,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("Upgrade your Betterlife Account",
+                            const Text("Upgrade your Amp Up Account",
                                 style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w700)),
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w700)),
                             const SizedBox(
-                              height: 5,
+                              height: 3,
                             ),
                             const Text(
                                 "Verify your identity to improve limits on your account",
                                 style: TextStyle(
                                   fontSize: 12,
+                                  color: Colors.black,
                                 )),
+                            const SizedBox(
+                              height: 2,
+                            ),
                             GestureDetector(
                               onTap: () {},
                               child: Text(

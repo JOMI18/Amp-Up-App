@@ -131,7 +131,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
           child: Consumer(builder: (context, ref, _) {
             goTo = ref.watch(goToProvider);
             user =
-                ref.watch(userProvider); // watch is the getter read, the setter
+                ref.watch(userProvider); 
             email = ref.watch(signUpProvider)['email'];
             phone = ref.watch(signUpProvider)['phone'];
             refs = ref.watch(bvnProvider);

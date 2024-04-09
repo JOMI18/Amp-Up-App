@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 
 import 'package:amp_up/imports.dart';
 
 class Dashboard extends StatefulWidget {
-  final UserModel? user;
-
-  const Dashboard({super.key, this.user});
+  const Dashboard({
+    super.key,
+  });
 
   @override
   State<Dashboard> createState() => _DashboardState();
@@ -17,7 +16,6 @@ class _DashboardState extends State<Dashboard> {
 
   static List<Widget> widgetOptions = <Widget>[
     Home(),
-
     Savings(),
     Payments(),
     Transactions(),
@@ -36,20 +34,13 @@ class _DashboardState extends State<Dashboard> {
 
     return Scaffold(
         body: widgetOptions.elementAt(selectedIndex),
-
-        // In Dart, the elementAt() methd is used to access an element at a specific index in a list or iterable.
         bottomNavigationBar: BottomNavigationBar(
           showUnselectedLabels: true,
           currentIndex: selectedIndex,
           onTap: onItemTapped,
-          selectedItemColor: colorScheme
-              .primary, // Color of the selected item's icon and label
-          unselectedItemColor: Colors
-              .grey.shade800, // Color of the unselected items' icons and labels
-          selectedLabelStyle: const TextStyle(
-              fontWeight:
-                  FontWeight.bold), // Style for the selected item's label
-
+          selectedItemColor: colorScheme.primary,
+          unselectedItemColor: Color.fromARGB(255, 198, 198, 198),
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

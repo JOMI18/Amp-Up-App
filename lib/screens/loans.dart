@@ -12,11 +12,10 @@ class Loans extends StatelessWidget {
       appBar: CustomAppBars(
         title: "Loans",
         trailing: Padding(
-          padding: const EdgeInsets.all(6),
+          padding: const EdgeInsets.symmetric(horizontal: 12),
           child: CircleAvatar(
-            radius: 16,
-            backgroundColor:
-                const Color.fromARGB(161, 63, 63, 63).withOpacity(0.5),
+            radius: 14,
+            backgroundColor: Color.fromARGB(255, 87, 87, 87),
             child: GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, "support");
@@ -24,7 +23,7 @@ class Loans extends StatelessWidget {
               child: const Icon(
                 Icons.question_mark_outlined,
                 size: 18,
-                color: Color.fromARGB(255, 16, 16, 16),
+                color: Colors.white,
               ),
             ),
           ),
@@ -57,7 +56,7 @@ class Loans extends StatelessWidget {
                                 "Total left to pay",
                                 style: TextStyle(
                                   fontSize: 20,
-                                  color: Color.fromARGB(255, 56, 56, 56),
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                             ],
@@ -76,15 +75,15 @@ class Loans extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 40,
+              SizedBox(
+                height: 5.h,
               ),
               SizedBox(
                 child: ComponentSlideIns(
                   beginOffset: const Offset(4.0, 0.0),
                   duration: const Duration(milliseconds: 1200),
                   child: SizedBox(
-                    height: 350,
+                    height: 45.h,
                     child: Card(
                       elevation: 0,
                       color: Colors.white,
@@ -95,11 +94,8 @@ class Loans extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Icon(
-                              Icons.monetization_on,
-                              size: 80,
-                              color: const Color.fromARGB(255, 1, 157, 7),
-                            ),
+                            Icon(Icons.monetization_on,
+                                size: 80, color: colorscheme.primary),
                             const SizedBox(
                               height: 25,
                             ),
@@ -113,26 +109,7 @@ class Loans extends StatelessWidget {
                             const SizedBox(
                               height: 20,
                             ),
-                            ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: colorscheme.primary,
-                                  foregroundColor: Colors.white,
-                                  elevation: 5,
-                                  fixedSize: const Size(250, 60),
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 12, horizontal: 50),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  )),
-                              child: const Text(
-                                "Get a Loan",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                    fontSize: 16),
-                              ),
-                            )
+                            Btns().btn(context, "Get a Loan", () {})
                           ],
                         ),
                       ),
@@ -156,11 +133,12 @@ class Loans extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           "Upgrade to KYC",
                           style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 20,
+                              color: colorscheme.primary,
                               letterSpacing: -0.2),
                         ),
                         const SizedBox(

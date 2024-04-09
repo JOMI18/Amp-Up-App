@@ -4,6 +4,7 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:lottie/lottie.dart';
 export 'package:flutter_riverpod/flutter_riverpod.dart';
 export 'package:flutter/cupertino.dart';
+export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // SERVICES
 export 'package:amp_up/services/utilities.dart';
@@ -37,6 +38,7 @@ export 'package:amp_up/customized/password_box.dart';
 export 'package:amp_up/customized/tab_bars.dart';
 export 'package:amp_up/customized/pop_up_buttons.dart';
 export 'package:amp_up/customized/popups/custom_alert_dialog.dart';
+export 'package:amp_up/customized/switches.dart';
 
 // SCREENS
 export 'package:amp_up/screens/new_user.dart';
@@ -66,6 +68,19 @@ export 'package:amp_up/screens/transactions.dart';
 export 'package:amp_up/screens/dashboard.dart';
 export 'package:amp_up/screens/sign_in.dart';
 export 'package:amp_up/screens/already_signed_in.dart';
+export 'package:amp_up/screens/forgot_pin.dart';
+export 'package:amp_up/screens/notification.dart';
+export 'package:amp_up/screens/support.dart';
+export 'package:amp_up/screens/loan_page_view.dart';
+export 'package:amp_up/screens/tx_success.dart';
+export 'package:amp_up/screens/support_challenge.dart';
+export 'package:amp_up/screens/electricity.dart';
+export 'package:amp_up/screens/review_tv_purchase.dart';
+export 'package:amp_up/screens/cables_tv.dart';
+export 'package:amp_up/screens/security.dart';
+export 'package:amp_up/screens/bvn_verification.dart';
+export 'package:amp_up/screens/buy_airtime.dart';
+export 'package:amp_up/screens/buy_data.dart';
 
 // WIDGETS
 export 'package:amp_up/widgets/sign_up/top_section.dart';

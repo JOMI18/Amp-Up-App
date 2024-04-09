@@ -1,16 +1,16 @@
-import 'package:amp_up/imports.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:amp_up/imports.dart';
 
-// ignore: must_be_immutable
-class Education extends StatefulWidget {
-  Education({super.key, required this.param});
-  String param;
+class Electricity extends StatefulWidget {
+  const Electricity({super.key});
+
   @override
-  State<Education> createState() => _EducationState();
+  State<Electricity> createState() => _ElectricityState();
 }
 
-class _EducationState extends State<Education> {
-  String selectedPin = "";
+class _ElectricityState extends State<Electricity> {
+  String selectedDisco = "";
   bool isActive = true;
   TextEditingController numCt = TextEditingController();
   TextEditingController billCt = TextEditingController();
@@ -18,8 +18,18 @@ class _EducationState extends State<Education> {
   Map selectedItems = {};
 
   Map images = {
-    'jamb': "lib/assets/images/education/jamb.jpeg",
-    "waec": "lib/assets/images/education/waec.png",
+    "aba": "lib/assets/images/tv-channels/gotv.jpg",
+    "kano": "lib/assets/images/tv-channels/showmax.webp",
+    "enugu": "lib/assets/images/tv-channels/dstv.jpg",
+    "ibadan": "lib/assets/images/tv-channels/showmax.webp",
+    "eko": "lib/assets/images/tv-channels/dstv.jpg",
+    "ikeja": "lib/assets/images/tv-channels/showmax.webp",
+    "joss": "lib/assets/images/tv-channels/dstv.jpg",
+    "kaduna": "lib/assets/images/tv-channels/showmax.webp",
+    "abuja": "lib/assets/images/tv-channels/dstv.jpg",
+    "portharcourt": "lib/assets/images/tv-channels/showmax.webp",
+    "benin": "lib/assets/images/tv-channels/dstv.jpg",
+    "yola": "lib/assets/images/tv-channels/showmax.webp",
   };
 
   List items = [
@@ -32,23 +42,12 @@ class _EducationState extends State<Education> {
   ];
   // List items = [];
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    setState(() {
-      selectedPin = widget.param;
-    });
-    // getPlans();
-  }
-
   void getPlans() async {
-    // AlertLoading loading=AlertLoading();
-    // loading.showAlertDialog(context);
-    final response =
-        await BillController().getBillPlans({"serviceId": selectedPin});
-    // loading.closeDialog(context);
-    // print(response);
+    print("$selectedDisco ==================`");
+    final response = await BillController()
+        .getBillPlans({"serviceId": "$selectedDisco-electric"});
+
+    print(response);
     if (response['status'] == 'error') {
       Utilities().copyToClipboard(context, response['message']);
       return;
@@ -61,21 +60,21 @@ class _EducationState extends State<Education> {
 // print(items);
   }
 
-//  @override
-//   void didChangeDependencies() {
-//     super.didChangeDependencies();
-//    Map name = ModalRoute.of(context)!.settings.arguments as Map;
-//     // setState(() {
-//       selectedPin = name["name"].toString().toLowerCase();
-//       //  getPlans();
-//     // });
-//     getPlans();
-//     }
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Map name = ModalRoute.of(context)!.settings.arguments as Map;
+    // setState(() {
+    selectedDisco = name["name"].toString().toLowerCase();
+    //  getPlans();
+    // });
+    // getPlans();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBars(title: "Education"),
+      appBar: const CustomAppBars(title: "Electricity "),
       body: Padding(
         padding: const EdgeInsets.all(12),
         child: Center(
@@ -91,10 +90,11 @@ class _EducationState extends State<Education> {
                       children: [
                         CircleAvatar(
                           radius: 30,
-                          backgroundImage: AssetImage("${images[selectedPin]}"),
+                          backgroundImage:
+                              AssetImage("${images[selectedDisco]}"),
                         ),
                         Text(
-                          "${selectedPin.toUpperCase()} Pin",
+                          "${selectedDisco.toUpperCase()} Electricity",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 18.sp),
                         )
@@ -112,9 +112,8 @@ class _EducationState extends State<Education> {
                               beginOffset: const Offset(-2.0, 0.0),
                               duration: const Duration(milliseconds: 1200),
                               child: CustomTextField(
-                                hintText: "${selectedPin.toUpperCase()} Number",
-                                inputTitle:
-                                    " ${selectedPin.toUpperCase()} Number",
+                                hintText: "Meter Number",
+                                inputTitle: "Meter Number",
                                 controller: numCt,
                               ),
                             ),
@@ -149,7 +148,6 @@ class _EducationState extends State<Education> {
                                 hintText: "0.00",
                                 inputTitle: "Amount",
                                 controller: amountCt,
-                                readOnly: true,
                                 prefixIcon: const Icon(
                                   Icons.payment,
                                   color: Colors.white,
@@ -196,7 +194,7 @@ class _EducationState extends State<Education> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Text("${items[index]["title"]}",
+                                          Text(items[index]["title"],
                                               // items[index]["name"],
                                               textAlign: TextAlign.center,
                                               style: const TextStyle(
@@ -229,10 +227,7 @@ class _EducationState extends State<Education> {
                   beginOffset: const Offset(0.0, 2.0),
                   duration: const Duration(milliseconds: 1200),
                   child: Btns().btn(context, "Proceed", () {
-                    Navigator.pushNamed(
-                      context,
-                      "reviewpurchase",
-                    );
+                    Navigator.pushNamed(context, "reviewpurchase");
                   }))
             ],
           ),
