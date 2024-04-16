@@ -81,6 +81,7 @@ class _VerifyNumberState extends State<VerifyNumber> {
       alertInfo.showAlertDialog(context);
       return;
     }
+
     Navigator.pushNamedAndRemoveUntil(context, goTo, (route) => false);
   }
 
@@ -124,151 +125,158 @@ class _VerifyNumberState extends State<VerifyNumber> {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
-          child: Consumer(builder: (context, ref, _) {
-            goTo = ref.watch(goToProvider);
-            user =
-                ref.watch(userProvider); 
-            email = ref.watch(signUpProvider)['email'];
-            phone = ref.watch(signUpProvider)['phone'];
-            refs = ref.watch(bvnProvider);
-            isBvn = ref.watch(bvnProvider);
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Column(
-                  children: [
-                    ComponentSlideIns(
-                        beginOffset: const Offset(0, -2),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
+            child: Consumer(builder: (context, ref, _) {
+              goTo = ref.watch(goToProvider);
+              user = ref.watch(userProvider);
+              email = ref.watch(signUpProvider)['email'];
+              phone = ref.watch(signUpProvider)['phone'];
+              refs = ref.watch(bvnProvider);
+              isBvn = ref.watch(bvnProvider);
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      ComponentSlideIns(
+                          beginOffset: const Offset(0, -2),
+                          duration: const Duration(milliseconds: 1200),
+                          child: Icon(Icons.phone_android_rounded,
+                              size: 60, color: colorScheme.primary)),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      ComponentSlideIns(
+                        beginOffset: const Offset(-2, 0),
                         duration: const Duration(milliseconds: 1200),
-                        child: Icon(Icons.phone_android_rounded,
-                            size: 60, color: colorScheme.primary)),
-                    const SizedBox(
-                      height: 40,
-                    ),
-                    ComponentSlideIns(
-                      beginOffset: const Offset(-2, 0),
-                      duration: const Duration(milliseconds: 1200),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Verify Phone number",
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.w800,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            ref.watch(reasonProvider),
-                            style: const TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.w800,
-                              color: Colors.red,
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Enter the 4-digit code sent to ${utilities.hidePhoneNumber(user.phone)} and ${utilities.hideEmailAddress(user.email)}. Never disclose this to anyone!",
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 70,
-                ),
-                Column(
-                  children: [
-                    ComponentSlideIns(
-                      beginOffset: const Offset(2, 0),
-                      duration: const Duration(milliseconds: 1200),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          PasswordInputBox(
-                              textController: controller1,
-                              focusnode: focusnode1,
-                              nextfocusnode: focusnode2),
-                          const SizedBox(
-                            width: 12,
-                          ),
-                          PasswordInputBox(
-                              textController: controller2,
-                              focusnode: focusnode2,
-                              nextfocusnode: focusnode3),
-                          const SizedBox(
-                            width: 12,
-                          ),
-                          PasswordInputBox(
-                            textController: controller3,
-                            focusnode: focusnode3,
-                            nextfocusnode: focusnode4,
-                          ),
-                          const SizedBox(
-                            width: 12,
-                          ),
-                          PasswordInputBox(
-                            textController: controller4,
-                            focusnode: focusnode4,
-                            func: submit,
-                            isLast: true,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    ComponentSlideIns(
-                      beginOffset: const Offset(6, 0),
-                      duration: const Duration(milliseconds: 1200),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Didn't receive the code? ",
-                            style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              sendAgain();
-                            },
-                            child: Text(
-                              isButtonEnabled
-                                  ? 'Send again'
-                                  : 'Send again in $remainingSeconds seconds',
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Verify Phone number",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: colorScheme.primary),
+                                fontSize: 24,
+                                fontWeight: FontWeight.w800,
+                              ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              ref.watch(reasonProvider),
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.red,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Enter the 4-digit code sent to ${utilities.hidePhoneNumber(user.phone)} and ${utilities.hideEmailAddress(user.email)}. Never disclose this to anyone!",
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w600),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            );
-          }),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 70,
+                  ),
+                  Column(
+                    children: [
+                      ComponentSlideIns(
+                        beginOffset: const Offset(2, 0),
+                        duration: const Duration(milliseconds: 1200),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            PasswordInputBox(
+                                textController: controller1,
+                                focusnode: focusnode1,
+                                nextfocusnode: focusnode2),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            PasswordInputBox(
+                                textController: controller2,
+                                prevfocusnode: focusnode1,
+                                focusnode: focusnode2,
+                                nextfocusnode: focusnode3),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            PasswordInputBox(
+                              textController: controller3,
+                              prevfocusnode: focusnode2,
+                              focusnode: focusnode3,
+                              nextfocusnode: focusnode4,
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            PasswordInputBox(
+                              textController: controller4,
+                              prevfocusnode: focusnode3,
+                              focusnode: focusnode4,
+                              func: submit,
+                              isLast: true,
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ComponentSlideIns(
+                        beginOffset: const Offset(6, 0),
+                        duration: const Duration(milliseconds: 1200),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Didn't receive the code? ",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 5,
+                            ),
+                            GestureDetector(
+                              onTap: () {
+                                sendAgain();
+                              },
+                              child: Text(
+                                isButtonEnabled
+                                    ? 'Send again'
+                                    : 'Send again in $remainingSeconds seconds',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: colorScheme.primary),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              );
+            }),
+          ),
         ),
       ),
     );

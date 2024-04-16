@@ -11,7 +11,7 @@ class LoanPageView extends StatefulWidget {
 class _LoanPageViewState extends State<LoanPageView> {
   final PageController _loanController = PageController();
 
-  final List<List<Map<String, String>>> pages = [
+  final List pages = [
     [
       {
         "title": "Provide a bank statement",
@@ -164,14 +164,20 @@ class _LoanPageViewState extends State<LoanPageView> {
         pageIndex == pages.length - 1
             ? Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Btns().btn(context, "Finish", () {}),
+                child: Btns().btn(context, "Finish", () {
+                  Navigator.pop(context);
+                }),
               )
             : Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Row(
                   children: [
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _loanController.previousPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.ease);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: colorScheme.secondary.withOpacity(0.7),
                         foregroundColor: Theme.of(context).iconTheme.color,
@@ -197,7 +203,11 @@ class _LoanPageViewState extends State<LoanPageView> {
                       width: 20,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _loanController.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.ease);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: colorScheme.primary,
                         foregroundColor: Colors.white,

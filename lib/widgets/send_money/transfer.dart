@@ -28,7 +28,7 @@ class TransferCard extends StatelessWidget {
                   radius: 50,
                   child: Icon(
                     Icons.note_alt_sharp,
-                    color: iconTheme.color,
+                    color: Utilities().appColors(context).primary,
                     size: 60,
                   ),
                 ),

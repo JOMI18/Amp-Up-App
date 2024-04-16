@@ -3,6 +3,7 @@ import 'package:amp_up/imports.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 
 class Profile extends StatelessWidget {
@@ -11,6 +12,7 @@ class Profile extends StatelessWidget {
     {
       "mainIcon": Icons.arrow_upward_rounded,
       "mainTitle": "Upgrade your account",
+      "route": null
     },
     {
       "mainIcon": Icons.account_circle,
@@ -26,6 +28,7 @@ class Profile extends StatelessWidget {
       "mainIcon": Icons.email,
       "mainTitle": "Support",
       "route": "support",
+      "page": Support()
     },
     {
       "mainIcon": Icons.credit_card,
@@ -35,6 +38,7 @@ class Profile extends StatelessWidget {
       "mainIcon": Icons.lock,
       "mainTitle": "Security settings",
       "route": "security",
+      "page": const Security()
     },
     {
       "mainIcon": Icons.note_alt,
@@ -115,20 +119,20 @@ class Profile extends StatelessWidget {
                                     children: [
                                       Text(
                                         "$firstName $lastName",
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             fontSize: 16,
                                             color: Colors.white,
                                             fontWeight: FontWeight.w900,
                                             letterSpacing: 1.1),
                                       ),
-                                      Text("Client ID:2345678567",
+                                      const Text("Client ID:2345678567",
                                           style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 13,
                                             color: Colors.white,
                                           )),
                                       Text("$date",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 12,
                                             color: Colors.white,
                                           ))
@@ -170,14 +174,18 @@ class Profile extends StatelessWidget {
                         itemBuilder: ((context, index) {
                           return GestureDetector(
                             onTap: () {
-                              if (items[index]["page"] != "" &&
-                                  items[index]["route"] != "") {
+                              if (items[index]["route"] == null ||
+                                  items[index]["page"] == null) {
+                                return;
+                              } else if (items[index]["page"] != " " &&
+                                  items[index]["route"] != " ") {
                                 Navigator.of(context).push(
                                   SlideAnimation(
                                     page: items[index]["page"],
                                   ),
                                 );
                               } else {
+                                print("reaching");
                                 Navigator.pushNamed(
                                     context, items[index]["route"]);
                               }
@@ -213,11 +221,28 @@ class Profile extends StatelessWidget {
                                       SizedBox(
                                         height: 6.h,
                                       ),
-                                      Text("Amp up: version.1.1.0 "),
-                                      SizedBox(
+                                      const Text("Version.1.1.0 "),
+                                      const SizedBox(
                                         height: 6,
                                       ),
-                                      Text("Copyright Oluwajomiloju Odedairo"),
+                                      RichText(
+                                        text: const TextSpan(
+                                            text: "Copyright",
+                                            children: [
+                                              WidgetSpan(
+                                                child: Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 2.0),
+                                                  child: Icon(Icons.copyright,
+                                                      size: 18,
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                              TextSpan(
+                                                  text:
+                                                      "2024 Amp Up lnc. All rights reserved ")
+                                            ]),
+                                      ),
                                     ],
                                   ),
                               ],
