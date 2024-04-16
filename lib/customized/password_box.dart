@@ -6,12 +6,14 @@ class PasswordInputBox extends StatelessWidget {
       required this.textController,
       required this.focusnode,
       this.nextfocusnode,
+      this.prevfocusnode,
       this.func,
       this.isLast = false});
 
   late final TextEditingController textController;
   late final FocusNode focusnode;
   late final FocusNode? nextfocusnode;
+  late final FocusNode? prevfocusnode;
   late final VoidCallback? func;
   late final bool? isLast;
   @override
@@ -24,6 +26,9 @@ class PasswordInputBox extends StatelessWidget {
         focusNode: focusnode,
         maxLength: 1,
         onChanged: (value) {
+          if (value.isEmpty && prevfocusnode != null) {
+            prevfocusnode!.requestFocus();
+          }
           if (value != "" && nextfocusnode != null) {
             nextfocusnode!.requestFocus();
           }

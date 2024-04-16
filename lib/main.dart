@@ -39,6 +39,7 @@ class MyApp extends StatelessWidget {
                   foregroundColor: Colors.white),
               useMaterial3: true,
             ),
+            // initialRoute: "starter",
             initialRoute: "dashboard",
             routes: {
               'starter': (context) => const IndexPage(),
@@ -49,9 +50,10 @@ class MyApp extends StatelessWidget {
               "verifyNumber": (context) => const VerifyNumber(),
               "createPin": (context) => const CreatePassword(),
               "confirmPin": (context) => const ConfirmPassword(),
-              "dashboard": (context) => const Dashboard(),
-              "home": (context) => Home(),
               "alreadySignedIn": (context) => const AlreadySignedIn(),
+              "dashboard": (context) => const Dashboard(),
+              //
+              "home": (context) => Home(),
               "forgotPin": (context) => const ForgotPin(),
               "bvn": (context) => const BvnVerification(),
               "security": (context) => const Security(),
@@ -82,6 +84,7 @@ class MyApp extends StatelessWidget {
               'electricList': (context) => ElectricList(),
               'txSuccess': (context) => TXSuccess(),
               'reviewpurchase': (context) => ReviewPurchase(),
+              'airtime_cash': (context) => AirtimeCash(),
             });
       },
       maxTabletWidth: 900,
@@ -89,12 +92,9 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-// clear input on delete
 // setting page pref
 // check buy data pg ui
-// collapsing input and button to help resp
-
+// add right imgs
 // emm
 // 174081
 // 1518

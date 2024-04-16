@@ -57,10 +57,10 @@ class Payments extends StatelessWidget {
     },
     {
       "mainIcon": Icons.add_card_rounded,
-      "mainTitle": "Card ",
-      "subTitle": "View debit card details and benefits",
+      "mainTitle": "Airtime-Cash",
+      "subTitle": "change the value of your airtime to cash",
       "iconColor": Colors.pinkAccent,
-      "route": "",
+      "route": "airtime_cash",
     },
   ];
 
@@ -80,73 +80,71 @@ class Payments extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Expanded(
-          child: GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              // crossAxisCount: 2,
-              crossAxisCount: crossAxisCount,
-              mainAxisSpacing: 20,
-              crossAxisSpacing: 20,
-              childAspectRatio:
-                  (itemWidth / 180), // Adjust item height based on width
-            ),
-            itemCount: items.length,
-            itemBuilder: ((context, index) {
-              return Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, items[index]["route"]);
-                    },
-                    child: ComponentSlideIns(
-                      beginOffset: const Offset(0, -4.0),
-                      duration: const Duration(milliseconds: 1000),
-                      child: Container(
-                        padding: const EdgeInsets.all(10),
-                        width: 180,
-                        height: 160,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              width: 1,
-                              color: Colors.grey.shade500,
-                            )),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              radius: 20,
-                              backgroundColor: Colors.white,
-                              child: Icon(
-                                items[index]["mainIcon"],
-                                size: 26,
-                                color: items[index]["iconColor"],
-                              ),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            // crossAxisCount: 2,
+            crossAxisCount: crossAxisCount,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 20,
+            childAspectRatio:
+                (itemWidth / 180), // Adjust item height based on width
+          ),
+          itemCount: items.length,
+          itemBuilder: ((context, index) {
+            return Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, items[index]["route"]);
+                  },
+                  child: ComponentSlideIns(
+                    beginOffset: const Offset(0, -4.0),
+                    duration: const Duration(milliseconds: 1000),
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      width: 180,
+                      height: 160,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            width: 1,
+                            color: Colors.grey.shade500,
+                          )),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Colors.white,
+                            child: Icon(
+                              items[index]["mainIcon"],
+                              size: 26,
+                              color: items[index]["iconColor"],
                             ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Text(items[index]["mainTitle"],
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.w600, fontSize: 16)),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(items[index]["subTitle"],
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 12,
-                                ))
-                          ],
-                        ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Text(items[index]["mainTitle"],
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 16)),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(items[index]["subTitle"],
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                              ))
+                        ],
                       ),
                     ),
                   ),
-                ],
-              );
-            }),
-          ),
+                ),
+              ],
+            );
+          }),
         ),
       ),
     );

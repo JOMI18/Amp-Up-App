@@ -159,7 +159,7 @@ class _EducationState extends State<Education> {
                             const SizedBox(
                               height: 6,
                             ),
-                            const Text("Account balance:{ N10,000.00 }")
+                            const Text("Account balance:{ ₦10,000.00 }")
                           ],
                         )
                       : SizedBox(

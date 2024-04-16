@@ -81,6 +81,7 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
     if (response['status'] == 'error') {
       info.message = response['message'];
       info.showAlertDialog(context);
+      return;
     }
 
     // Navigator.pushNamed(context, "bvn");
@@ -91,104 +92,114 @@ class _ConfirmPasswordState extends State<ConfirmPassword> {
   Widget build(BuildContext context) {
     ColorScheme colorScheme = Theme.of(context).colorScheme;
 
-    return Scaffold(
-      backgroundColor: colorScheme.background,
-      body: Center(
-        child: SafeArea(
-          child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
-              child: Consumer(builder: (context, ref, _) {
-                pins = ref.watch(txPinProvider);
-                refs = ref;
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        ComponentSlideIns(
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        backgroundColor: colorScheme.background,
+        body: Center(
+          child: SafeArea(
+            child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 25, horizontal: 16),
+                child: Consumer(builder: (context, ref, _) {
+                  pins = ref.watch(txPinProvider);
+                  refs = ref;
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        children: [
+                          ComponentSlideIns(
+                              beginOffset: const Offset(0, -2),
+                              duration: const Duration(milliseconds: 1200),
+                              child: Icon(
+                                Icons.lock_person,
+                                size: 60,
+                                color: colorScheme.primary,
+                              )),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          ComponentSlideIns(
                             beginOffset: const Offset(0, -2),
                             duration: const Duration(milliseconds: 1200),
-                            child: Icon(
-                              Icons.lock_person,
-                              size: 60,
-                              color: colorScheme.primary,
-                            )),
-                        const SizedBox(
-                          height: 40,
-                        ),
-                        ComponentSlideIns(
-                          beginOffset: const Offset(0, -2),
-                          duration: const Duration(milliseconds: 1200),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Confirm the pin",
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w800,
+                            child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "Confirm the pin",
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Just to be sure. Kindly re-enter your 4-digit PIN to confirm it.",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 15, fontWeight: FontWeight.w600),
-                              ),
-                            ],
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  "Just to be sure. Kindly re-enter your 4-digit PIN to confirm it.",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 70,
-                    ),
-                    Column(
-                      children: [
-                        ComponentSlideIns(
-                          beginOffset: const Offset(-2, 0),
-                          duration: const Duration(milliseconds: 1200),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              PasswordInputBox(
-                                  textController: controller1,
-                                  focusnode: focusnode1,
-                                  nextfocusnode: focusnode2),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              PasswordInputBox(
-                                  textController: controller2,
-                                  focusnode: focusnode2,
-                                  nextfocusnode: focusnode3),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              PasswordInputBox(
-                                  textController: controller3,
-                                  focusnode: focusnode3,
-                                  nextfocusnode: focusnode4),
-                              const SizedBox(
-                                width: 20,
-                              ),
-                              PasswordInputBox(
-                                textController: controller4,
-                                focusnode: focusnode4,
-                                func: submit,
-                                isLast: true,
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                );
-              })),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      Column(
+                        children: [
+                          ComponentSlideIns(
+                            beginOffset: const Offset(-2, 0),
+                            duration: const Duration(milliseconds: 1200),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                PasswordInputBox(
+                                    textController: controller1,
+                                    focusnode: focusnode1,
+                                    nextfocusnode: focusnode2),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                PasswordInputBox(
+                                    textController: controller2,
+                                    prevfocusnode: focusnode1,
+                                    focusnode: focusnode2,
+                                    nextfocusnode: focusnode3),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                PasswordInputBox(
+                                    textController: controller3,
+                                    prevfocusnode: focusnode2,
+                                    focusnode: focusnode3,
+                                    nextfocusnode: focusnode4),
+                                const SizedBox(
+                                  width: 20,
+                                ),
+                                PasswordInputBox(
+                                  textController: controller4,
+                                  prevfocusnode: focusnode3,
+                                  focusnode: focusnode4,
+                                  func: submit,
+                                  isLast: true,
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                    ],
+                  );
+                })),
+          ),
         ),
       ),
     );

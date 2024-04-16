@@ -26,7 +26,7 @@ class ContactsCard extends StatelessWidget {
                   radius: 50,
                   child: Icon(
                     Icons.contact_phone_rounded,
-                    color: iconTheme.color,
+                    color: Utilities().appColors(context).primary,
                     size: 60,
                   ),
                 ),
@@ -45,7 +45,7 @@ class ContactsCard extends StatelessWidget {
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
-                        backgroundColor: iconTheme.color,
+                        backgroundColor: Utilities().appColors(context).primary,
                         elevation: 5,
                         fixedSize: const Size(500, 50),
                         padding: const EdgeInsets.all(12),

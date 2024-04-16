@@ -81,6 +81,7 @@ export 'package:amp_up/screens/security.dart';
 export 'package:amp_up/screens/bvn_verification.dart';
 export 'package:amp_up/screens/buy_airtime.dart';
 export 'package:amp_up/screens/buy_data.dart';
+export 'package:amp_up/screens/airtime_cash.dart';
 
 // WIDGETS
 export 'package:amp_up/widgets/sign_up/top_section.dart';

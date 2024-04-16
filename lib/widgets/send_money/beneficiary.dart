@@ -27,7 +27,7 @@ class BeneficiaryCard extends StatelessWidget {
                   radius: 50,
                   child: Icon(
                     Icons.people_alt_sharp,
-                    color: iconTheme.color,
+                    color: Utilities().appColors(context).primary,
                     size: 60,
                   ),
                 ),
