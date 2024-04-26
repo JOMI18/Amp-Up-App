@@ -66,6 +66,7 @@ class MyApp extends StatelessWidget {
               "notify": (context) => const NotificationTab(),
               'addMoney': (context) => AddMoney(),
               'sendMoney': (context) => const SendMoney(),
+              'referrals': (context) => const Referrals(),
               'dataAirtime': (context) => AirtimeDataCombo(
                     param: 1,
                   ),

@@ -51,6 +51,8 @@ class Profile extends StatelessWidget {
     {
       "mainIcon": Icons.card_giftcard_outlined,
       "mainTitle": "Referrals",
+      "route": "referrals",
+      "page": Referrals()
     },
     {
       "mainIcon": Icons.double_arrow_outlined,
@@ -172,27 +174,26 @@ class Profile extends StatelessWidget {
                     child: ListView.builder(
                         itemCount: items.length,
                         itemBuilder: ((context, index) {
-                          return GestureDetector(
-                            onTap: () {
-                              if (items[index]["route"] == null ||
-                                  items[index]["page"] == null) {
-                                return;
-                              } else if (items[index]["page"] != " " &&
-                                  items[index]["route"] != " ") {
-                                Navigator.of(context).push(
-                                  SlideAnimation(
-                                    page: items[index]["page"],
-                                  ),
-                                );
-                              } else {
-                                print("reaching");
-                                Navigator.pushNamed(
-                                    context, items[index]["route"]);
-                              }
-                            },
-                            child: Column(
-                              children: [
-                                ListTile(
+                          return Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  if (items[index]["route"] == null ||
+                                      items[index]["page"] == null) {
+                                    return;
+                                  } else if (items[index]["page"] != "") {
+                                    Navigator.of(context).push(
+                                      SlideAnimation(
+                                        page: items[index]["page"],
+                                      ),
+                                    );
+                                  } else if (items[index]["route"] != "") {
+                                    print("reaching");
+                                    Navigator.pushNamed(
+                                        context, items[index]["route"]);
+                                  }
+                                },
+                                child: ListTile(
                                   leading: CircleAvatar(
                                     radius: 20,
                                     child: Icon(
@@ -212,41 +213,41 @@ class Profile extends StatelessWidget {
                                           fontWeight: FontWeight.w500,
                                           fontSize: 16)),
                                 ),
-                                Divider(
-                                  height: 2.h,
-                                ),
-                                if (index == items.length - 1)
-                                  Column(
-                                    children: [
-                                      SizedBox(
-                                        height: 6.h,
-                                      ),
-                                      const Text("Version.1.1.0 "),
-                                      const SizedBox(
-                                        height: 6,
-                                      ),
-                                      RichText(
-                                        text: const TextSpan(
-                                            text: "Copyright",
-                                            children: [
-                                              WidgetSpan(
-                                                child: Padding(
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 2.0),
-                                                  child: Icon(Icons.copyright,
-                                                      size: 18,
-                                                      color: Colors.white),
-                                                ),
+                              ),
+                              Divider(
+                                height: 2.h,
+                              ),
+                              if (index == items.length - 1)
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 6.h,
+                                    ),
+                                    const Text("Version.1.1.0 "),
+                                    const SizedBox(
+                                      height: 6,
+                                    ),
+                                    RichText(
+                                      text: const TextSpan(
+                                          text: "Copyright",
+                                          children: [
+                                            WidgetSpan(
+                                              child: Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 2.0),
+                                                child: Icon(Icons.copyright,
+                                                    size: 18,
+                                                    color: Colors.white),
                                               ),
-                                              TextSpan(
-                                                  text:
-                                                      "2024 Amp Up lnc. All rights reserved ")
-                                            ]),
-                                      ),
-                                    ],
-                                  ),
-                              ],
-                            ),
+                                            ),
+                                            TextSpan(
+                                                text:
+                                                    "2024 Amp Up lnc. All rights reserved ")
+                                          ]),
+                                    ),
+                                  ],
+                                ),
+                            ],
                           );
                         })),
                   ),
